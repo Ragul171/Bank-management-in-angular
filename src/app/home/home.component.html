@@ -1,0 +1,26 @@
+<p style="font-weight: bold; font-size: 35px;">Welcome {{name | uppercase}}</p>
+<h3> Balance : {{balance}} </h3>
+<h3 >Account Summary</h3>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Sent Account Number</th>
+        <th scope="col">Received Account Number</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of summary;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{entry.sent_accno}}</td>
+        <td>{{entry.rec_accno}}</td>
+        <td>{{entry.date | date}}</td>
+        <td>{{entry.date | date:'shortTime'}}</td>
+        <td [ngClass]="entry.sent_accno == curaccno ? 'red' : 'green'">{{entry.amount}}</td>
+      </tr>
+    </tbody>
+  </table>

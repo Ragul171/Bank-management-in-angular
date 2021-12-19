@@ -1,0 +1,9 @@
+.navbar{
+    background-color: bisque;
+    border-bottom: 2px solid #ff656c;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.navbar-brand{
+    color: white;
+}

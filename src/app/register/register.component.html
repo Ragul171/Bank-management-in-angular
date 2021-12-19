@@ -1,0 +1,15 @@
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<div class="logo"></div>
+<div class="login-block">
+    <h1>Register</h1>
+    <input type="text" value="" [(ngModel)]="name" placeholder="Name" id="name" />
+    <input type="text" value="" [(ngModel)]="accno" placeholder="Enter your account number" id="accno"/>
+    <input type="email" value="" [(ngModel)]="email" placeholder="Email" id="email" />
+    <input type="text" value="" [(ngModel)]="username" placeholder="Username" id="username" />
+    <input type="password" value="" [(ngModel)]="pwd" placeholder="Password" id="password" (blur)=validatePass()/> 
+    <div [ngClass]="error=='Password Strong'? 'green' :'red'">{{error}}</div><br/>
+    <label for="gender" style="padding-right: 10px;">Choose gender:  </label>
+    <input type="radio" id="gender" [(ngModel)]="gender" value="male" style="padding-right: 10px;"/>  Male
+    <input type="radio" [(ngModel)]="gender" value="female" style="padding-right: 10px;"/>  Female
+    <button value="Register" (click)=registerUser()>  Register</button> 
+</div>

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<button value="Add Account" class="btn btn-outline-primary" (click)=btnClicked() style="margin: 10px;">Add Account</button>
+<div *ngIf=add class="base_div">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Account Holder Name</th>
+            <th scope="col">Account Number</th>
+            <th scope="col">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" [(ngModel)]="accname" placeholder="Account holder name"/></td>
+            <td><input type="text" [(ngModel)]="accno" placeholder="Account number"/></td>
+            <td><input type="text" [(ngModel)]="bal" placeholder="Account balance"/></td>
+          </tr>
+          <tr style="text-align: center;">
+            <td colspan="3"><button value="Add" (click)=addAcc() style="margin: 10px;" class="btn btn-outline-info"> ADD</button></td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div><br/><br/>
+<input type="text" [(ngModel)]="search" placeholder="Search account " style="margin: 20px;"/>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Account Holder Name</th>
+        <th scope="col">Account Number</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Deposit</th>
+        <th scope="col">Withdraw</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of accdet | filter:search ;let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{entry.name}}</td>
+        <td>{{entry.accno}}</td>
+        <td>{{entry.accbal}}</td>
+        <td><button (click)=depositClicked(entry.accno)  onclick="document.getElementById('id01').style.display='block'" class="w3-button btn-black" style="cursor: pointer;" s>Deposit</button></td>
+        <td><button (click)=withdrawClicked(entry.accno)  onclick="document.getElementById('id02').style.display='block'" class="w3-button btn-black" style="cursor: pointer;">Withdraw</button></td>
+        <td><button (click)=deleteAcc(entry.accno) class="w3-button btn-red">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- The Modal -->
+  <div id="id01" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <h3>Deposit</h3>
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-button w3-display-topright">&times;</span><br/><br/>
+        <input type="text" [(ngModel)]="amount" placeholder="Enter amount" style="margin: 20px;"/>
+        <input type="button" value="Deposit" (click)=depositAcc()/><br/><br/>
+      </div>
+    </div>
+  </div>
+  <div id="id02" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+        <h3>Withdraw</h3>
+        <span onclick="document.getElementById('id02').style.display='none'"
+        class="w3-button w3-display-topright">&times;</span><br/><br/>
+        <input type="text" [(ngModel)]="amount" placeholder="Enter amount" style="margin: 20px;"/>
+        <input type="button" value="Withdraw" (click)=withdrawAcc()/><br/><br/>
+      </div>
+    </div>
+  </div>

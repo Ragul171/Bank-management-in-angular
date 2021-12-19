@@ -1,0 +1,44 @@
+<!-- <div id="transfer">
+    <table>
+        <tr>
+            <td scope="col">From</td>
+            <td scope="col"><input type="text" [(ngModel)]="from" id="from" readonly class="form-control-plaintext"/></td>
+        </tr>
+        <tr>
+            <td scope="col">To</td>
+            <td scope="col"><input type="text" [(ngModel)]="to" id="to" (blur)=validateToAccount()/></td>
+            <td *ngIf=error>{{val}}</td>
+        </tr>
+        <tr>
+            <td scope="col">Enter amount to tranfser</td>
+            <td scope="col"><input type="text" [(ngModel)]="amount" id="amount"/></td>
+        </tr>
+        <tr  style="text-align: center;">
+            <td colspan="2" scope="col"><input type="button" class="btn btn-outline-info" value="Transfer" (click)=transfer()/></td>
+        </tr>
+    </table>
+</div> -->
+<div class="card" style="width: 50rem; align-items: center; margin-left: 25%; margin-top: 20px;">
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center;">Transfer</h5>
+      <table>
+        <tr>
+            <td scope="col">From</td>
+            <td scope="col"><input type="text" [(ngModel)]="from" id="from" readonly class="form-control-plaintext"/></td>
+        </tr>
+        <tr>
+            <td scope="col">To</td>
+            <td scope="col"><input type="text" [(ngModel)]="to" id="to" (blur)=validateToAccount()/></td>
+            <td *ngIf=error [ngClass]="val=='Account validated'?'green':'red'">{{val}}</td>
+        </tr>
+        <tr>
+            <td scope="col">Enter amount to tranfser</td>
+            <td scope="col"><input type="text" [(ngModel)]="amount" id="amount"/></td>
+        </tr>
+        <tr  style="text-align: center;">
+            <td colspan="2" scope="col"><input type="button" class="btn btn-outline-info" value="Transfer" (click)=transfer()/></td>
+        </tr>
+    </table>
+    </div>
+  </div>
+
