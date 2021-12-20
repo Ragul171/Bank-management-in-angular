@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ObjectId } from 'mongoose';
 import { DatabaseService } from '../database.service';
 import { SharedServiceService } from '../shared-service.service';
 
@@ -11,7 +10,7 @@ import { SharedServiceService } from '../shared-service.service';
 export class ProfileComponent implements OnInit {
 
   constructor(private sharedUser:SharedServiceService,private mydb:DatabaseService) { }
-  user!:ObjectId;
+  user:string="";
   name:string="";
   email:string="";
   pwd:string="";

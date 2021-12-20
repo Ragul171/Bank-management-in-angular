@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ObjectId } from 'mongoose';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -15,10 +14,10 @@ export class DatabaseService {
   loginService(uname:string,pw:string):Observable<any>{
     return this.http.post("http://172.16.7.75:5000/login",{username:uname,pwd:pw});
   }
-  homeService(uname:ObjectId):Observable<any>{
+  homeService(uname:string):Observable<any>{
     return this.http.post("http://172.16.7.75:5000/home",{username:uname});
   }
-  profileService(uname:ObjectId):Observable<any>{
+  profileService(uname:string):Observable<any>{
     return this.http.post("http://172.16.7.75:5000/profile",{username:uname});
   }
   validateToService(toAcc:string):Observable<any>{

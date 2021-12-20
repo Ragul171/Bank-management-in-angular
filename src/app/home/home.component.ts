@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../database.service';
 import { Router } from '@angular/router';
 import { SharedServiceService } from '../shared-service.service';
-import { ObjectId } from 'mongoose';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +10,7 @@ import { ObjectId } from 'mongoose';
 export class HomeComponent implements OnInit {
 
   constructor(private mydb:DatabaseService,private _router: Router,private sharedUser:SharedServiceService) { console.log(this.sharedUser.accno);}
-  user!:ObjectId;
+  user:string="";
   name:string="";
   balance:Number=0;
   summary:any;
